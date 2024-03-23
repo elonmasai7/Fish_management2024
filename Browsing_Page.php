@@ -117,7 +117,7 @@
         <form id="form-signin" action="Browsing_Page.php" method="post">
             <select id="typeFlag" name="typeFlag" class="form-control">
                 <option selected>Freshwater</option>
-                <option>Saltwater</option>
+                <option>Salt water</option>
             </select>
             <button type="submit" name="FilterWater" class="btn btn-lg btn-primary btn-block" value="FilterbyWater">Filter By Type</button>
         </form>
