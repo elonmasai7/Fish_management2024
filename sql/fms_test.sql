@@ -53,7 +53,7 @@ INSERT INTO `customer` (`user_id`, `user_flag`, `name`, `phone`, `address`, `ema
 (519, 'Individual', 'Chris', 2147483647, '11th Street', 'Chris12@gmail.com', '8555fd0a608e57e7d479b6d5b454284c'),
 (532, 'Enterprise', 'Fish & Co', 2147483647, 'Block B, House 99/A', 'FandC@fmail.com', '67358b56b04d1905e8775640b9704318'),
 (583, 'Individual', 'Bruce', 2147483647, 'Gotham Heights', 'Bruce@bmail.com', '8ff39acd849b74071bae6c7be1226c8d'),
-(776, 'Individual', 'Ryan', 1777123234, '34 Jashimuddin Ave.', 'RyanM@gmail.com', '1adbb3178591fd5bb0c248518f39bf6d');
+(776, 'Individual', 'Elon', 1777123234, '34 Jashimuddin Ave.', 'elonmasai7@gmail.com', '1adbb3178591fd5bb0c248518f39bf6d');
 
 -- --------------------------------------------------------
 
@@ -99,11 +99,11 @@ CREATE TABLE `fisheries` (
 --
 
 INSERT INTO `fisheries` (`F_Id`, `location`, `mgr_id`) VALUES
-(1000, 'Dhaka', 101),
-(1002, 'Dhaka', 101),
-(1030, 'Chittagong', 101),
-(1035, 'Khulna', 201),
-(1042, 'Barisal', 201);
+(1000, 'Eldoret', 101),
+(1002, 'Baringo', 101),
+(1030, 'Marakwet', 101),
+(1035, 'Eldoret', 201),
+(1042, 'Iten', 201);
 
 -- --------------------------------------------------------
 
