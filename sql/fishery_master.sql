@@ -27,6 +27,42 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `customer`
 --
+<?php
+    // Include database connection or any other necessary files
+    include('connectDB.php');
+    
+    // Check if the form to add a new admin is submitted
+    if(isset($_POST['addAdmin'])) {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        
+        // Perform validation if necessary
+        
+        // Hash the password for security
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        
+        // Insert the new admin into the database
+        $sql = "INSERT INTO administrators (username, password) VALUES ('$username', '$hashedPassword')";
+        if ($conn->query($sql) === TRUE) {
+            echo "New admin added successfully.";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+    }
+    
+    // Check if the form to delete an admin is submitted
+    if(isset($_POST['deleteAdmin'])) {
+        $adminId = $_POST['adminId'];
+        
+        // Delete the admin from the database
+        $sql = "DELETE FROM administrators WHERE id=$adminId";
+        if ($conn->query($sql) === TRUE) {
+            echo "Admin deleted successfully.";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+    }
+?>
 
 CREATE TABLE `customer` (
   `user_id` int(11) NOT NULL,
