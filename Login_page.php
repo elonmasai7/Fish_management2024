@@ -1,53 +1,28 @@
-<?php include ('connectDB.php'); ?>
+<?php
+// Connect to the database
+include('connectDB.php');
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/bootstrap-grid.css">
-    <link rel="stylesheet" href="css/bootstrap-reboot.css">
-</head>
+// Check if a POST request was sent with login credentials
+if (isset($_POST['SignIn'])) {
+    $username = $_POST['inputUser'];
+    $password = $_POST['inputPassword'];
 
-<style>
+    // Authenticate the user with the database (replace with your actual authentication logic)
+    // This example assumes a table named "users" with columns "username" and "password"
+    $result = mysqli_query($conn, "SELECT * FROM users WHERE username='$username' AND password='$password'");
 
-    body {
-        top: -5px;
-        position: relative;
-        background-image: url("images/sea_background_image.jpg");
-        background-color: #9fcdff;
-        background-size: cover;
-        font-family: "Calibri";
+    if (mysqli_num_rows($result) > 0) {
+        // User is authenticated, set a session variable and redirect to the main page
+        session_start();
+        $_SESSION['loggedin'] = true;
+        header("Location: main_page.php"); // Replace "main_page.php" with the actual path to your main page
+        exit();
+    } else {
+        // Invalid username or password, display an error message
+        echo "<h4>Invalid username or password.</h4>";
     }
+}
 
-    .body-box {
-
-        background-color: #2e6da4;
-        max-width: 500px;
-        margin: auto;
-        align-content: center;
-        border-radius: 30px;
-
-    }
-
-</style>
-
-<body>
-    <div class="body-box">
-        <div style="text-align: left; color: white; margin: auto; padding-left: 10px; padding-right: 10px; padding-top: 20px; padding-bottom: 20px;">
-            <form class="form-signin" action="Login_Submit.php" method="POST">
-                <label for="inputUser">Username</label>
-                <input type="text" name="inputUser" class="form-control" placeholder="Username">
-                <!--the name of the field for entering username is inputUser-->
-                <label for="inputPassword">Password</label>
-                <input type="password" name="inputPassword" class="form-control" placeholder="Password" required>
-                <!--the name of the field for entering password is inputPassword-->
-                <br>
-                <button type="submit" name="SignIn" class="btn btn-lg btn-primary btn-block" value="Submit">Login.</button>
-            </form>
-        </div>
-    </div>
-</body>
-</html>
-
-<?php include('connectClose.php'); ?>
+// Close the database connection
+include('connectClose.php');
+?>
