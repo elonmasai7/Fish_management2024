@@ -1,28 +1,48 @@
-<?php
-// Connect to the database
-include('connectDB.php');
-
-// Check if a POST request was sent with login credentials
-if (isset($_POST['SignIn'])) {
-    $username = $_POST['inputUser'];
-    $password = $_POST['inputPassword'];
-
-    // Authenticate the user with the database (replace with your actual authentication logic)
-    // This example assumes a table named "users" with columns "username" and "password"
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE username='$username' AND password='$password'");
-
-    if (mysqli_num_rows($result) > 0) {
-        // User is authenticated, set a session variable and redirect to the main page
-        session_start();
-        $_SESSION['loggedin'] = true;
-        header("Location: main_page.php"); // Replace "main_page.php" with the actual path to your main page
-        exit();
-    } else {
-        // Invalid username or password, display an error message
-        echo "<h4>Invalid username or password.</h4>";
-    }
-}
-
-// Close the database connection
-include('connectClose.php');
-?>
+    <html>  
+    <head>  
+        <title>PHP login system</title>  
+        // insert style.css file inside index.html  
+        <link rel = "stylesheet" type = "text/css" href = "style.css">   
+    </head>  
+    <body>  
+        <div id = "frm">  
+            <h1>Login</h1>  
+            <form name="f1" action = "authentication.php" onsubmit = "return validation()" method = "POST">  
+                <p>  
+                    <label> UserName: </label>  
+                    <input type = "text" id ="user" name  = "user" />  
+                </p>  
+                <p>  
+                    <label> Password: </label>  
+                    <input type = "password" id ="pass" name  = "pass" />  
+                </p>  
+                <p>     
+                    <input type =  "submit" id = "btn" value = "Login" />  
+                </p>  
+            </form>  
+        </div>  
+        // validation for empty field   
+        <script>  
+                function validation()  
+                {  
+                    var id=document.f1.user.value;  
+                    var ps=document.f1.pass.value;  
+                    if(id.length=="" && ps.length=="") {  
+                        alert("User Name and Password fields are empty");  
+                        return false;  
+                    }  
+                    else  
+                    {  
+                        if(id.length=="") {  
+                            alert("User Name is empty");  
+                            return false;  
+                        }   
+                        if (ps.length=="") {  
+                        alert("Password field is empty");  
+                        return false;  
+                        }  
+                    }                             
+                }  
+            </script>  
+    </body>     
+    </html>  
