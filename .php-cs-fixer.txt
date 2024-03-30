@@ -1,5 +1,5 @@
 <?php
-// https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/blob/master/doc/config.rst
+The 
 
 $config = new PhpCsFixer\Config();
 $rules  = [
