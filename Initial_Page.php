@@ -96,7 +96,7 @@
 
         <br>Click on Browse Fish to check our stock.
         <br>Click on Order to place an order with us.
-        <br>Click on Profile to change your User Info.
+        <br>Click on Profile to change your User Info
 
         </h2>
 
