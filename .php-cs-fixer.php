@@ -14,6 +14,7 @@ $rules  = [
     // '@PHPUnit100Migration:risky' => true,
 ];
 
+
 $config->setRules($rules);
 $config->setHideProgress(true);
 $config->setRiskyAllowed(true);
