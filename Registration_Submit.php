@@ -1,8 +1,7 @@
 <?php include('connectDB.php'); ?>
 
 <?php
-
-    if(isset($_POST['RegisterAccount'])) {
+ if(isset($_POST['RegisterAccount'])) {
         $Username = $_POST['inputUser'];
         $Email = $_POST['inputEmail'];
         $Password_1 = $_POST['inputPassword'];
