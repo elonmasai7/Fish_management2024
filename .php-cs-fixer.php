@@ -10,7 +10,7 @@ $rules  = [
     'php_unit_test_class_requires_covers' => true,
     'php_unit_method_casing'              => true,
     // Do not enable by default. These rules require review!! (but they are useful)
-    // '@PHP80Migration:risky'      => true,
+
     // '@PHPUnit100Migration:risky' => true,
 ];
 
